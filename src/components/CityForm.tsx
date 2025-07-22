@@ -1,39 +1,21 @@
 import React, { useState } from "react";
-import axios from "axios";
-
-interface cityData {
-    name: string;
-}
 
 interface CityFormProps {
-    onCityData: () => void;
+    onSearch: (city: string) => void;
+    loading: boolean;
 }
 
-export default function UserForm({
-    onCityData,
-}: Readonly<CityFormProps>) {
-    const [formData, setFormData] = useState<cityData>({
-        name: ""
-    });
+const CityForm: React.FC<CityFormProps> = ({ onSearch, loading }) => {
+    const [cityName, setCityName] = useState<string>("");
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setCityName(e.target.value);
     };
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        try {
-            await axios.get("https://api.weatherapi.com/v1/current.json?key=83ec500b1d684130b61144058252207&q=Bogota&aqi=no", {
-                params: {
-                    key: "83ec500b1d684130b61144058252207",
-                    aqi: 'no',
-                    q: formData.name
-                }
-            });
-            onCityData();
-            setFormData({ name: ""});
-        } catch (error) {
-            console.error("Error getting data:", error);
+        if (cityName.trim()) {
+            onSearch(cityName.trim());
         }
     };
 
@@ -41,21 +23,27 @@ export default function UserForm({
         "w-full p-3 bg-[#3c3c3c] rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow";
 
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-5 w-96">
+        <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-5 w-full max-w-md"
+        >
             <input
                 name="name"
-                value={formData.name}
-                placeholder="City Name"
+                value={cityName}
+                placeholder="City Name (e.g., Bogota, London)"
                 onChange={handleChange}
                 className={inputStyles}
                 required
-            />{" "}
+            />
             <button
                 type="submit"
-                className="w-full p-3 bg-blue-600 rounded-lg text-white font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#282828] transition-colors"
+                disabled={loading}
+                className="w-full p-3 bg-blue-600 rounded-lg text-white font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#282828] transition-colors disabled:bg-gray-500 disabled:cursor-not-allowed"
             >
-                Search data{" "}
-            </button>{" "}
+                {loading ? "Searching..." : "Search Weather"}
+            </button>
         </form>
     );
-}
+};
+
+export default CityForm;
