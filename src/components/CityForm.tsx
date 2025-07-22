@@ -23,7 +23,13 @@ export default function UserForm({
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            await axios.get("http://localhost:8080/users", formData);
+            await axios.get("https://api.weatherapi.com/v1/current.json?key=83ec500b1d684130b61144058252207&q=Bogota&aqi=no", {
+                params: {
+                    key: "83ec500b1d684130b61144058252207",
+                    aqi: 'no',
+                    q: formData.name
+                }
+            });
             onCityData();
             setFormData({ name: ""});
         } catch (error) {
