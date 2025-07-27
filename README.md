@@ -28,6 +28,7 @@ A clean and modern web application built with React and TypeScript that allows u
 <img width="1278" height="659" alt="image" src="https://github.com/user-attachments/assets/2ff52a17-c2a6-4ec8-94b2-a666a5d63791" />
 
 </br>
+</br>
 
 ## Getting Started
 
