@@ -12,7 +12,12 @@ Get real-time weather forecasts for any city, built with React and TypeScript.
 
 </br>
 
+## About
+
 A clean and modern web application built with React and TypeScript that allows users to get real-time weather information for any city in the world. This project fetches live weather data from the WeatherAPI.com API and displays it in a simple and user-friendly interface.
+
+</br>
+</br>
 
 ## Features
 
@@ -21,6 +26,8 @@ A clean and modern web application built with React and TypeScript that allows u
 - Responsive Design: Fully responsive layout built with Tailwind CSS for a seamless experience on both desktop and mobile devices.
 
 <img width="1278" height="659" alt="image" src="https://github.com/user-attachments/assets/2ff52a17-c2a6-4ec8-94b2-a666a5d63791" />
+
+</br>
 
 ## Getting Started
 
