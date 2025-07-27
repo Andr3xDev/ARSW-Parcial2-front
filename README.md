@@ -1,24 +1,39 @@
-# Aplicación del Clima
+<div align="center">
+  
+<h1 align="center">Weather App</h1>
 
-Una sencilla aplicación web construida con React y TypeScript que permite a los usuarios consultar el clima actual de cualquier ciudad. La aplicación utiliza la API de WeatherAPI.com para obtener los datos.
+</br>
 
-## Características
+<p align="center">
+Get real-time weather forecasts for any city, built with React and TypeScript.
+</p>
 
-- Búsqueda de clima en tiempo real por nombre de ciudad.
-- Muestra la temperatura, el estado del tiempo y la ubicación.
-- Diseño simple y responsivo utilizando Tailwind CSS.
+</div>
+
+</br>
+
+A clean and modern web application built with React and TypeScript that allows users to get real-time weather information for any city in the world. This project fetches live weather data from the WeatherAPI.com API and displays it in a simple and user-friendly interface.
+
+## Features
+
+- Real-Time Weather Search: Instantly search for current weather conditions by city name.
+- Detailed Information: Displays key weather information including temperature, current conditions like Sunny or Cloudy, and location details as city, region and country.
+- Responsive Design: Fully responsive layout built with Tailwind CSS for a seamless experience on both desktop and mobile devices.
 
 <img width="1278" height="659" alt="image" src="https://github.com/user-attachments/assets/2ff52a17-c2a6-4ec8-94b2-a666a5d63791" />
 
+## Getting Started
 
-Instalación y Uso
+Follow these instructions to get a copy of the project up and running on your local machine.
 
-- Clonar el repositorio:
+- Clone the repository:
+
 ```sh
 git clone
 ```
 
-- instalar dependencias y correr la app:
+- Install dependencies and run the app:
+
 ```sh
 npm i
 npm run dev
